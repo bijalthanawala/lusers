@@ -1,0 +1,8 @@
+TO DO
+
+1) Read UID_MAX and honor it
+2) Show accounts with shell=nologin separately
+
+WISH LIST
+1) If login.defs not found OR UID_MIN not found,
+   then allow user to manully enter a number (UID_MIN)
