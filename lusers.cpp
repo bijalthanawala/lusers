@@ -4,6 +4,8 @@
 #include <sstream>
 #include <fstream>
 
+#include <pwd.h>
+
 using namespace std;
 
 /*#define FILE_LOGIN_DEFS "/etc/login.defs"*/
@@ -43,11 +45,11 @@ int find_minuid(ifstream &logindefs, char delimeter)
         vec_size = toks.size();
         if(vec_size && toks[0] == "UID_MIN") {
             istringstream (toks[vec_size-1]) >> minuid;
-            cout << toks[0] << " = " << minuid << "\n";
+            //cout << toks[0] << " = " << minuid << "\n";
         }
     }
     
-
+    return minuid;
 }
 
 int get_minuid(ifstream &logindefs) 
@@ -55,7 +57,7 @@ int get_minuid(ifstream &logindefs)
     int minuid = 0;
 
     minuid = find_minuid(logindefs, ' ');
-    /*if(! minuid)*/ 
+    if(! minuid) 
     {
         logindefs.clear();
         logindefs.seekg(0, ios::beg);
@@ -68,15 +70,27 @@ int get_minuid(ifstream &logindefs)
 int main() 
 {
     ifstream logindefs(FILE_LOGIN_DEFS);
-    ifstream pwd(FILE_PASSWD);
     int minuid = 0;
+    struct passwd *pwent = NULL;
 
     if(!logindefs.is_open()) {
-        cout << "Unable to open file " << FILE_LOGIN_DEFS << "\n";
+        cout << "Unable to open file " << FILE_LOGIN_DEFS << " !\n";
         return 1; 
     }
 
     minuid = get_minuid(logindefs);
+    if(! minuid) {
+        cout << "UID_MIN not found!\n";
+        return 1;
+    }
+
+    cout << "List of users with uid >= " << minuid << ":\n";
+    while(pwent = getpwent()) {
+        if(pwent->pw_uid >= minuid) {
+            cout << pwent->pw_name << " " << pwent->pw_uid <<  " " << pwent->pw_shell << "\n";
+        }
+    }
+    endpwent();
 
     logindefs.close();
 }
