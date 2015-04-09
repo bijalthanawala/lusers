@@ -1,8 +1,13 @@
 TO DO
 
-1) Read UID_MAX and honor it
-2) Show accounts with shell=nologin separately
+- Show accounts with shell=nologin separately
+- cmdline switch to suppress UID_MAX check
+- Check and notify if /etc/nologin is in effect
 
 WISH LIST
-1) If login.defs not found OR UID_MIN not found,
-   then allow user to manully enter a number (UID_MIN)
+- If login.defs not found OR UID_MIN not found,
+  then allow user to manully enter a number (UID_MIN)
+
+
+DONE 
+- DONE: Read UID_MAX and honor it
