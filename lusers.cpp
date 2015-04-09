@@ -8,8 +8,8 @@
 
 using namespace std;
 
-/*#define FILE_LOGIN_DEFS "/etc/login.defs"*/
-#define FILE_LOGIN_DEFS "./login.defs.test"
+#define FILE_LOGIN_DEFS "/etc/login.defs"
+//#define FILE_LOGIN_DEFS "./login.defs.test"
 #define FILE_PASSWD "/etc/passwd"
 
 vector<string> split(string &s, char delim)
