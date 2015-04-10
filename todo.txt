@@ -1,9 +1,11 @@
 TO DO
 
+- Add comments to the code
 - Show accounts with shell=nologin separately
 - cmdline switch to suppress UID_MAX check
 - Check and notify if /etc/nologin is in effect
 - Warn if a user's password is blank/not set
+- Remove debug message (make output prettier)
 
 WISH LIST
 - If login.defs not found OR UID_MIN not found,
