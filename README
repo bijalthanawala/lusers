@@ -1,0 +1,16 @@
+Project Alias: lusers
+Project Name: List (login-capable) Linux Users
+Project Description:
+
+This tiny project came into existence solely with a
+simple aim of printing non-system users on a 
+linux users. So it does now.
+
+Refer to TODO/Wish list for more ideas
+on where this is going.
+
+EXTRA NOTE:
+Project uses C++ only to get some practice
+of that language. What this project does
+can be done much easily in other scripting 
+languages.
