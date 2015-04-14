@@ -9,7 +9,6 @@
 using namespace std;
 
 #define FILE_LOGIN_DEFS "/etc/login.defs"
-//#define FILE_LOGIN_DEFS "./login.defs.test"
 #define FILE_PASSWD "/etc/passwd"
 
 vector<string> split(string &s, char delim)
@@ -44,10 +43,10 @@ void find_minuid(ifstream &logindefs, char delimeter, int &minuid, int &maxuid)
         vec_size = toks.size();
         if(vec_size && toks[0] == "UID_MIN") {
             istringstream (toks[vec_size-1]) >> minuid;
-            cout << toks[0] << " = " << minuid << "\n";
+            //cout << toks[0] << " = " << minuid << "\n";
         } else if(vec_size && toks[0] == "UID_MAX") {
             istringstream (toks[vec_size-1]) >> maxuid;
-            cout << toks[0] << " = " << maxuid << "\n";
+            //cout << toks[0] << " = " << maxuid << "\n";
         }
 
     }
