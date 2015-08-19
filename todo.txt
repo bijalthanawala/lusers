@@ -1,15 +1,19 @@
 TO DO
 
-- Add comments to the code
+- Check and report user-account expiry date
+- Reflect DenyUsers/AllowUsers, DenyGroup/AllowGroup in /etc/ssh/sshd_config
 - Show accounts with shell=nologin separately
 - cmdline switch to suppress UID_MAX check
 - Check and notify if /etc/nologin is in effect
 - Warn if a user's password is blank/not set
+- Add comments to the code
 - Remove debug message (make output prettier)
+
 
 WISH LIST
 - If login.defs not found OR UID_MIN not found,
-  then allow user to manully enter a number (UID_MIN)
+  then allow user to manually enter a number (UID_MIN)
+- Googletest (Unittest)
 
 
 DONE 
