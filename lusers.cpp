@@ -36,16 +36,17 @@ void find_minuid(ifstream &logindefs, char delimeter, int &minuid, int &maxuid)
     string line;
 
     int vec_size;
+    int itmp;
 
     while(getline(logindefs, line) ) {
         toks = split(line, delimeter); 
         //dbg_print_vector(toks);
         vec_size = toks.size();
         if(vec_size && toks[0] == "UID_MIN") {
-            istringstream (toks[vec_size-1]) >> minuid;
+            minuid = stoi(toks[vec_size-1]);
             //cout << toks[0] << " = " << minuid << "\n";
         } else if(vec_size && toks[0] == "UID_MAX") {
-            istringstream (toks[vec_size-1]) >> maxuid;
+            maxuid = stoi(toks[vec_size-1]);
             //cout << toks[0] << " = " << maxuid << "\n";
         }
 
