@@ -82,7 +82,7 @@ int main()
         return 1;
     }
 
-    cout << "List of users with " << minuid << "<= uid <=" << maxuid << ":\n";
+    cout << "List of users with " << minuid << " <= uid <= " << maxuid << ":\n";
     while(pwent = getpwent()) {
         if(pwent->pw_uid >= minuid && pwent->pw_uid <= maxuid) {
             cout << pwent->pw_name << " " << pwent->pw_uid <<  " " << pwent->pw_shell << "\n";
